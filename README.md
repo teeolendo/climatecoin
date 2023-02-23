@@ -22,12 +22,38 @@ When an admin verifies a submission, ClimateCoin can then be allocated to partic
 
 ## Getting Started
 
-Try running some of the following tasks:
+Clone the repo and install dependencies
+
+```shell
+npm i
+```
+
+Create a .env file
+
+```shell
+cp .env-example .env;
+```
+
+Update .env to set your PRIVATE_KEY, ETHERSCAN_API_KEY, and POLYSCAN_API_KEY environment variables.
+
+
+Try running some of the following tasks to compile and create contract.
 
 ```shell
 npx hardhat help
 npx hardhat test
 REPORT_GAS=true npx hardhat test
 npx hardhat node
-npx hardhat run scripts/deploy.ts
+npx hardhat run scripts/deploy.ts --network mumbai
 ```
+
+My climatecoin contract: https://mumbai.polygonscan.com/address/0x174A943ff431306338031CE875527A3A55849DB7
+
+
+Update the command to use your contract address, then verify your contract
+
+```shell
+npx hardhat verify --network mumbai <your-contract-address> 1000
+```
+
+The result is your verified source code. Here's mine: https://mumbai.polygonscan.com/address/0x174A943ff431306338031CE875527A3A55849DB7#code

@@ -6,7 +6,7 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 contract ClimateCoin is ERC20 {
     mapping(address => bool) public isAnAdmin;
     mapping(address => bool) public isAFarmer;
-    mapping(address => uint256) public acerage;
+    mapping(address => uint256) public acreage;
     mapping(address => bool) public claims;
     mapping(address => uint256) public rewards;
 
@@ -34,7 +34,7 @@ contract ClimateCoin is ERC20 {
 
     function approveClaim(address _farmer) public onlyAdmins {
         require(claims[_farmer], "ClimateCoin:: No claims for Farmer");
-        rewards[_farmer] = acerage[_farmer];
+        rewards[_farmer] = acreage[_farmer];
         emit ClaimApproved(_farmer);
     }
 
@@ -47,13 +47,13 @@ contract ClimateCoin is ERC20 {
         emit Rewarded(msg.sender);
     }
 
-    function registerFarmer(address[] memory _farmer, uint256[] memory _acerage)
+    function registerFarmer(address[] memory _farmer, uint256[] memory _acreage)
         public
         onlyAdmins
     {
         for (uint256 i = 0; i < _farmer.length - 1; i++) {
             isAFarmer[_farmer[i]] = true;
-            acerage[_farmer[i]] = _acerage[i];
+            acreage[_farmer[i]] = _acreage[i];
             emit NewFarmer(_farmer[i]);
         }
     }
