@@ -12,13 +12,14 @@ const config: HardhatUserConfig = {
       accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [],
     },
     matic: {
-      url: "https://rpc-mumbai.maticvigil.com",
+      url: "https://rpc.ankr.com/polygon",
       accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [],
     },
   },
   etherscan: {
     apiKey: {
       polygonMumbai: process.env.POLYSCAN_API_KEY ?? "",
+      polygon: process.env.POLYSCAN_API_KEY ?? "",
     },
   },
 };

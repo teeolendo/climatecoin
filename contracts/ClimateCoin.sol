@@ -17,7 +17,7 @@ contract ClimateCoin is ERC20 {
     event NewAdminAdded(address sender);
 
     constructor(uint256 initialSupply) ERC20("ClimateToken", "CT") {
-        _mint(msg.sender, initialSupply);
+        _mint(msg.sender, initialSupply * decimals());
         isAnAdmin[msg.sender] = true;
     }
 
@@ -40,7 +40,7 @@ contract ClimateCoin is ERC20 {
 
     function processRewards() public {
         require(rewards[msg.sender] > 0, "ClimateCoin:: No rewards for farmer");
-        uint256 totalRewards = rewards[msg.sender] * 10**18 * 4;
+        uint256 totalRewards = rewards[msg.sender] * decimals() * 4;
         rewards[msg.sender] = 0;
         claims[msg.sender] = false;
         _mint(msg.sender, totalRewards);
