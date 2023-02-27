@@ -47,21 +47,17 @@ contract ClimateCoin is ERC20 {
         emit Rewarded(msg.sender);
     }
 
-    function registerFarmer(address[] memory _farmer, uint256[] memory _acreage)
+    function registerFarmer(address _farmer, uint256 _acerage)
         public
         onlyAdmins
     {
-        for (uint256 i = 0; i < _farmer.length - 1; i++) {
-            isAFarmer[_farmer[i]] = true;
-            acreage[_farmer[i]] = _acreage[i];
-            emit NewFarmer(_farmer[i]);
-        }
+        isAFarmer[_farmer] = true;
+        acreage[_farmer] = _acerage;
+        emit NewFarmer(_farmer);
     }
 
-    function addAdmin(address[] memory _admin) public onlyAdmins {
-        for (uint256 i = 0; i < _admin.length - 1; i++) {
-            isAnAdmin[_admin[i]] = true;
-            emit NewAdminAdded(_admin[i]);
-        }
+    function addAdmin(address _admin) public onlyAdmins {
+        isAnAdmin[_admin] = true;
+        emit NewAdminAdded(_admin);
     }
 }

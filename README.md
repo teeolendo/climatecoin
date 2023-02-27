@@ -47,7 +47,7 @@ npx hardhat node
 npx hardhat run scripts/deploy.ts --network mumbai
 ```
 
-My climatecoin contract: https://mumbai.polygonscan.com/address/0x174A943ff431306338031CE875527A3A55849DB7
+My climatecoin contract: https://mumbai.polygonscan.com/address/0xb99460c473f65F8d84297A2Fa3262003283A5100
 
 
 Update the command to use your contract address, then verify your contract
@@ -56,4 +56,4 @@ Update the command to use your contract address, then verify your contract
 npx hardhat verify --network mumbai <your-contract-address> 1000
 ```
 
-The result is your verified source code. Here's mine: https://mumbai.polygonscan.com/address/0x174A943ff431306338031CE875527A3A55849DB7#code
+The result is your verified source code. Here's mine: https://mumbai.polygonscan.com/address/0xb99460c473f65F8d84297A2Fa3262003283A5100#code
