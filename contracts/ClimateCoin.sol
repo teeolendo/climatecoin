@@ -9,7 +9,7 @@ contract ClimateCoin is ERC20 {
     mapping(address => uint256) public acreage;
     mapping(address => bool) public claims;
     mapping(address => uint256) public rewards;
-    mapping(address => bool) farmerWaitlist;
+    mapping(address => bool) public farmerWaitlist;
 
     event NewClaim(address indexed claimant);
     event ClaimApproved(address indexed farmer);
