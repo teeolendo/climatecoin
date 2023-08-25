@@ -16,7 +16,7 @@ const config: HardhatUserConfig = {
       accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [],
     },
     zkevm: {
-      url: 'https://rpc.public.zkevm-test.net',
+      url: 'https://zkevm-rpc.com',
       accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [],
     },
   },
@@ -24,7 +24,18 @@ const config: HardhatUserConfig = {
     apiKey: {
       polygonMumbai: process.env.POLYSCAN_API_KEY ?? '',
       polygon: process.env.POLYSCAN_API_KEY ?? '',
+      zkevm: process.env.ZKEVM_POLYSCAN_API_KEY ?? '',
     },
+    customChains: [
+      {
+        network: 'zkevm',
+        chainId: 1101,
+        urls: {
+          apiURL: 'https://api-zkevm.polygonscan.com/api',
+          browserURL: 'https://zkevm.polygonscan.com',
+        },
+      },
+    ],
   },
 }
 
