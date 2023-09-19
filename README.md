@@ -34,7 +34,7 @@ Create a .env file
 cp .env-example .env;
 ```
 
-Update .env to set your PRIVATE_KEY, ETHERSCAN_API_KEY, and POLYSCAN_API_KEY environment variables.
+Update .env to set your PRIVATE_KEY, ETHERSCAN_API_KEY, and POLYSCAN_API_KEY for Mumbai or ZKEVM_POLYSCAN_API_KEY for Polygon zkEVM environment variables.
 
 
 Try running some of the following tasks to compile and create contract.
@@ -44,16 +44,21 @@ npx hardhat help
 npx hardhat test
 REPORT_GAS=true npx hardhat test
 npx hardhat node
-npx hardhat run scripts/deploy.ts --network mumbai
+npx hardhat run scripts/deploy.ts --network zkevmtestnent
 ```
 
-My climatecoin contract: https://mumbai.polygonscan.com/address/0xb99460c473f65F8d84297A2Fa3262003283A5100
+My climatecoin contract
+Polygon zkEVM: https://testnet-zkevm.polygonscan.com/address/0x2CCdB646497A5432D82b68BC9b107DE0aC9c6770
+Mumbai: https://mumbai.polygonscan.com/address/0xb99460c473f65F8d84297A2Fa3262003283A5100
 
 
 Update the command to use your contract address, then verify your contract
 
 ```shell
-npx hardhat verify --network mumbai <your-contract-address> 1000
+npx hardhat verify --network zkevmtestnet <your-contract-address> 1000
 ```
 
-The result is your verified source code. Here's mine: https://mumbai.polygonscan.com/address/0xb99460c473f65F8d84297A2Fa3262003283A5100#code
+The result is your verified source code. Here's mine:
+
+Polygon zkEVM Testnet: https://testnet-zkevm.polygonscan.com/address/0x2CCdB646497A5432D82b68BC9b107DE0aC9c6770#code
+Mumbai:https://mumbai.polygonscan.com/address/0xb99460c473f65F8d84297A2Fa3262003283A5100#code
